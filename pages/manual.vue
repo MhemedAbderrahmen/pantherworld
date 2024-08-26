@@ -13,17 +13,17 @@ useSeoMeta({
     <h1 class="text-4xl font-bold mb-12">how to play p4nth3rworld</h1>
 
     <section>
-      <p class="text-base mb-2">
+      <p class="text-gray mb-2">
         p4nth3rworld is a multiplayer text-based game powered by a live coding stream at
         <a href="https://twitch.tv/whitep4nth3r/chat">twitch.tv/whitep4nth3r</a>.
       </p>
-      <p class="text-base mb-2">
+      <p class="text-gray mb-2">
         When events happen on the stream (follow, channel point redemption, subscription, etc), a random "world item"
         will spawn in a random "world zone", and a notification message will be sent to the stream chat.
       </p>
       <h2 class="text-3xl font-bold my-8">Your objective</h2>
-      <p class="text-base mb-2">!claim items and fill up your inventory.</p>
-      <p class="text-base mb-2">Your objective will change as the game evolves.</p>
+      <p class="text-gray mb-2">!claim items and fill up your inventory.</p>
+      <p class="text-gray mb-2">Your objective will change as the game evolves.</p>
     </section>
     <section>
       <h2 class="text-3xl font-bold my-8">Player commands</h2>
@@ -113,8 +113,8 @@ useSeoMeta({
 
     <section>
       <h2 class="text-3xl font-bold my-8">Play when the stream is offline</h2>
-      <p class="text-base mb-2">The game doesn't stop when the stream ends.</p>
-      <p class="text-base mb-2">
+      <p class="text-gray mb-2">The game doesn't stop when the stream ends.</p>
+      <p class="text-gray mb-2">
         <a href="https://discord.gg/theclaw" class="underline">Join The Claw Discord</a>
         and monitor the #p4nth3rworld-feed channel to be notified of item spawns when the stream is offline.
       </p>

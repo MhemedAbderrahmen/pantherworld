@@ -10,8 +10,8 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="flex flex-row gap-4 bg-zinc-800 rounded-lg p-4 items-center">
-    <div class="p-2 rounded-full bg-zinc-600 text-slate-50">
+  <div class="flex flex-row gap-4 bg-crust rounded-lg p-4 items-center">
+    <div class="p-2 rounded-full bg-base text-slate-50">
       <img :src="icon" height="32" width="32" :alt="iconAlt" />
     </div>
     <div class="flex flex-col gap-1">

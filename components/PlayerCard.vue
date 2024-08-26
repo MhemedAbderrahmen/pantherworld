@@ -8,7 +8,9 @@ const props = defineProps<{
 
 <template>
   <div class="flex flex-col gap-2">
-    <p class="text-lg uppercase font-bold m-auto text-center mb-2 bg-yellow-500 text-zinc-900 rounded-lg w-full">
+    <p
+      class="text-lg uppercase font-bold m-auto text-center mb-2 bg-catppuccin-green text-base rounded-lg w-full"
+    >
       {{ title }}
     </p>
     <div class="grid grid-cols-[1fr_2fr] gap-6 justify-center">
@@ -19,18 +21,22 @@ const props = defineProps<{
           width="128"
           height="128"
           alt="empty profile image"
-          class="rounded-full mb-2 border-4 border-yellow-500 bg-violet-700" />
+          class="rounded-full mb-2 border-4 border-yellow-500 bg-violet-700"
+        />
         <img
           v-else
           width="128"
           height="128"
           :src="player.image_url"
           :alt="`${player.username} profile image`"
-          class="rounded-full mb-2 border-4 border-yellow-500" />
+          class="rounded-full mb-2 border-4 border-yellow-500"
+        />
         <p class="font-bold text-center">@{{ player.username }}</p>
         <p v-if="item" class="capitalize text-center">{{ item!.zone }}</p>
         <p v-else class="capitalize text-center">{{ player.zone }}</p>
-        <p v-if="player.wealth_index">Wealth Index: {{ Intl.NumberFormat().format(player.wealth_index) }}</p>
+        <p v-if="player.wealth_index">
+          Wealth Index: {{ Intl.NumberFormat().format(player.wealth_index) }}
+        </p>
       </div>
       <InventoryItem v-if="item" :name="item?.name" :rarity="item?.rarity" />
     </div>

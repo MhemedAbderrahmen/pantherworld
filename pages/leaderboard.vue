@@ -10,10 +10,11 @@ useSeoMeta({
   description: "Where do you rank?",
 });
 
-const { status, data, error, refresh } = useFetch<FullLeaderboardResponse | null>(`leaderboard/`, {
-  baseURL: config.public.world_api_url,
-  lazy: true,
-});
+const { status, data, error, refresh } =
+  useFetch<FullLeaderboardResponse | null>(`leaderboard/`, {
+    baseURL: config.public.world_api_url,
+    lazy: true,
+  });
 
 const state = reactive<{
   username: string;
@@ -67,9 +68,13 @@ const sortedPlayers = computed(() => {
     const valueB = playerB[columnValue];
 
     if (typeof valueA === "number" && typeof valueB === "number") {
-      return sortSetting.value.direction === "asc" ? valueA - valueB : valueB - valueA;
+      return sortSetting.value.direction === "asc"
+        ? valueA - valueB
+        : valueB - valueA;
     } else if (typeof valueA === "string" && typeof valueB === "string") {
-      return sortSetting.value.direction === "asc" ? valueA.localeCompare(valueB) : valueB.localeCompare(valueA);
+      return sortSetting.value.direction === "asc"
+        ? valueA.localeCompare(valueB)
+        : valueB.localeCompare(valueA);
     }
 
     return 0;
@@ -80,12 +85,13 @@ function onSortClicked(column: keyof RankedPlayer) {
   if (sortSetting.value.column !== column) {
     sortSetting.value.column = column;
   } else {
-    sortSetting.value.direction = sortSetting.value.direction === "asc" ? "desc" : "asc";
+    sortSetting.value.direction =
+      sortSetting.value.direction === "asc" ? "desc" : "asc";
   }
 }
 
 function filteredWithUsername(): RankedPlayer[] {
-  if(!sortedPlayers) return [];
+  if (!sortedPlayers) return [];
   return sortedPlayers.value.filter((player) =>
     player.username.toLowerCase().includes(state.username.toLowerCase())
   );
@@ -107,7 +113,11 @@ function scrollToUser() {
   }
 }
 
-const columns: { key: keyof RankedPlayer; title: string; type: "num" | "az" }[] = [
+const columns: {
+  key: keyof RankedPlayer;
+  title: string;
+  type: "num" | "az";
+}[] = [
   { key: "rank", title: "Rank", type: "num" },
   { key: "username", title: "Username", type: "az" },
   { key: "items", title: "Items", type: "num" },
@@ -123,67 +133,109 @@ const columns: { key: keyof RankedPlayer; title: string; type: "num" | "az" }[] 
       <UFormGroup
         size="lg"
         :label="
-          !state.username ? 'Search for players' : 'Search for players (Found: ' + filteredWithUsername().length + ')'
+          !state.username
+            ? 'Search for players'
+            : 'Search for players (Found: ' +
+              filteredWithUsername().length +
+              ')'
         "
         class="w-full flex flex-col gap-2"
-        description="Press submit or enter to scroll to the results.">
+        description="Press submit or enter to scroll to the results."
+      >
         <div class="flex gap-2">
-          <UInput class="w-full" v-model="state.username" trailing color="emerald" placeholder="whitep4nth3r" />
-          <UButton type="submit" color="emerald" class="font-semibold">Submit</UButton>
+          <UInput
+            class="w-full"
+            v-model="state.username"
+            trailing
+            color="emerald"
+            placeholder="whitep4nth3r"
+          />
+          <UButton type="submit" color="emerald" class="font-semibold"
+            >Submit</UButton
+          >
         </div>
       </UFormGroup>
     </UForm>
 
     <table class="min-w-full divide-y divide-zinc-500 table-auto">
-      <thead class="bg-zinc-800">
+      <thead class="bg-surface-0">
         <tr>
           <th v-for="column of columns" scope="col" class="px-6 py-3 text-left">
             <button
               type="button"
               class="text-xs font-medium min-w-max text-zinc-300 uppercase flex items-center gap-1 p-2 focus:outline-none active:outline-none focus:ring focus:ring-emerald-300 active:ring active:ring-emerald-300 rounded-lg"
-              @click="onSortClicked(column.key)">
+              @click="onSortClicked(column.key)"
+            >
               <span>
                 {{ column.title }}
               </span>
               <img
-                v-if="sortSetting.column === column.key && sortSetting.direction === 'asc' && column.type === 'num'"
+                v-if="
+                  sortSetting.column === column.key &&
+                  sortSetting.direction === 'asc' &&
+                  column.type === 'num'
+                "
                 src="/icons/utils/sort_num_asc.svg"
                 alt="up arrow next to 0-9"
                 height="16"
-                width="16" />
+                width="16"
+              />
               <img
-                v-if="sortSetting.column === column.key && sortSetting.direction === 'desc' && column.type === 'num'"
+                v-if="
+                  sortSetting.column === column.key &&
+                  sortSetting.direction === 'desc' &&
+                  column.type === 'num'
+                "
                 src="/icons/utils/sort_num_desc.svg"
                 alt="down arrow next to 0-9"
                 height="16"
-                width="16" />
+                width="16"
+              />
               <img
-                v-if="sortSetting.column === column.key && sortSetting.direction === 'asc' && column.type === 'az'"
+                v-if="
+                  sortSetting.column === column.key &&
+                  sortSetting.direction === 'asc' &&
+                  column.type === 'az'
+                "
                 src="/icons/utils/sort_az_asc.svg"
                 alt="up arrow next to a-z"
                 height="16"
-                width="16" />
+                width="16"
+              />
               <img
-                v-if="sortSetting.column === column.key && sortSetting.direction === 'desc' && column.type === 'az'"
+                v-if="
+                  sortSetting.column === column.key &&
+                  sortSetting.direction === 'desc' &&
+                  column.type === 'az'
+                "
                 src="/icons/utils/sort_az_desc.svg"
                 alt="down arrow next to a-z"
                 height="16"
-                width="16" />
-              <span v-if="sortSetting.column !== column.key" class="h-4 w-4"></span>
+                width="16"
+              />
+              <span
+                v-if="sortSetting.column !== column.key"
+                class="h-4 w-4"
+              ></span>
             </button>
           </th>
         </tr>
       </thead>
-      <tbody class="bg-black/90 divide-y divide-zinc-500">
+      <tbody class="bg-mantle divide-y divide-zinc-500">
         <tr
           v-for="player in sortedPlayers"
           :id="player.username"
           :key="player.username"
           :class="{
-            'bg-emerald-300 text-zinc-900':
-              state.username && player.username.toLowerCase().includes(state.username.toLowerCase()),
-            'bg-violet-700 text-slate-50': !state.username && user?.name === player.username,
-          }">
+            'bg-emerald-300 text-base':
+              state.username &&
+              player.username
+                .toLowerCase()
+                .includes(state.username.toLowerCase()),
+            'bg-violet-700 text-slate-50':
+              !state.username && user?.name === player.username,
+          }"
+        >
           <td class="px-6 py-3 whitespace-nowrap">
             <span v-if="player.rank === 0">🥇</span>
             <span v-else-if="player.rank === 1">🥈</span>
@@ -191,15 +243,17 @@ const columns: { key: keyof RankedPlayer; title: string; type: "num" | "az" }[] 
             <span v-else>{{ player.rank + 1 }}</span>
           </td>
           <td
-            v-if="state.username && filteredWithUsername()[state.usernameSearchIndex - 1] && (filteredWithUsername()[state.usernameSearchIndex - 1].username === player.username)"
+            v-if="
+              state.username &&
+              filteredWithUsername()[state.usernameSearchIndex - 1] &&
+              filteredWithUsername()[state.usernameSearchIndex - 1].username ===
+                player.username
+            "
             class="px-6 py-3 whitespace-nowrap flex items-center"
           >
             <mark>{{ player.username }}</mark>
           </td>
-          <td
-            v-else
-            class="px-6 py-3 whitespace-nowrap flex items-center"
-          >
+          <td v-else class="px-6 py-3 whitespace-nowrap flex items-center">
             {{ player.username }}
           </td>
           <td class="px-6 py-3 whitespace-nowrap">

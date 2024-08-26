@@ -27,7 +27,7 @@ onClickOutside(target, (event) => (open.value = false));
 <template>
   <button
     type="button"
-    class="text-slate-50 notificationToggleButton flex gap-2 justify-between rounded-lg px-4 py-2 bottom-2 left-2 fixed focus:outline-none focus:ring focus:ring-emerald-300 active:ring active:ring-emerald-300 z-10 bg-zinc-700 shadow"
+    class="text-slate-50 notificationToggleButton flex gap-2 justify-between rounded-lg px-4 py-2 bottom-2 left-2 fixed focus:outline-none focus:ring focus:ring-emerald-300 active:ring active:ring-emerald-300 z-10 bg-base shadow"
     @click="() => toggleNotifications()"
     v-bind:aria-label="showNotifications ? 'Turn off event feed in sidebar' : 'Turn on event feed in sidebar'">
     <img src="/icons/utils/eye_open.svg" height="24" width="24" alt="eye" v-if="showNotifications" />
@@ -50,26 +50,26 @@ onClickOutside(target, (event) => (open.value = false));
       >
 
       <nav
-        class="text-xl font-bold flex flex-col gap-2 bg-zinc-700 w-full absolute top-16 rounded-lg py-4 z-50"
+        class="text-xl font-bold flex flex-col gap-2 bg-base w-full absolute top-16 rounded-lg py-4 z-50 shadow-xl"
         v-if="open">
         <NuxtLink
           href="/"
           @click="() => (open = false)"
-          class="text-base p-2 focus:outline-none focus:ring focus:ring-emerald-300 rounded-lg"
+          class="text-base p-2 focus:outline-none focus:ring focus:ring-emerald-300 rounded-lg text-white"
           :class="{ underline: title === 'index' }"
           >Home</NuxtLink
         >
         <NuxtLink
           href="/manual"
           @click="() => (open = false)"
-          class="text-base p-2 focus:outline-none focus:ring focus:ring-emerald-300 rounded-lg"
+          class="text-base p-2 focus:outline-none focus:ring focus:ring-emerald-300 rounded-lg text-white"
           :class="{ underline: title === 'manual' }"
           >How to play</NuxtLink
         >
         <NuxtLink
           href="/inventory"
           @click="() => (open = false)"
-          class="text-base p-2 focus:outline-none focus:ring focus:ring-emerald-300 rounded-lg"
+          class="text-base p-2 focus:outline-none focus:ring focus:ring-emerald-300 rounded-lg text-white "
           v-if="loggedIn"
           :class="{ underline: title === 'inventory' }"
           >Inventory</NuxtLink
@@ -77,28 +77,28 @@ onClickOutside(target, (event) => (open.value = false));
         <NuxtLink
           href="/recipes"
           @click="() => (open = false)"
-          class="text-base p-2 focus:outline-none focus:ring focus:ring-emerald-300 rounded-lg"
+          class="text-base p-2 focus:outline-none focus:ring focus:ring-emerald-300 rounded-lg text-white"
           :class="{ underline: title === 'recipes' }"
           >Recipes</NuxtLink
         >
         <NuxtLink
           href="/leaderboard"
           @click="() => (open = false)"
-          class="text-base p-2 focus:outline-none focus:ring focus:ring-emerald-300 rounded-lg"
+          class="text-base p-2 focus:outline-none focus:ring focus:ring-emerald-300 rounded-lg text-white"
           :class="{ underline: title === 'leaderboard' }"
           >Leaderboard</NuxtLink
         >
         <a
           href="https://p4nth3rworld-wiki.netlify.app/"
           @click="() => (open = false)"
-          class="text-base p-2 focus:outline-none focus:ring focus:ring-emerald-300 rounded-lg"
+          class="text-base p-2 focus:outline-none focus:ring focus:ring-emerald-300 rounded-lg text-white"
           target="_blank"
           >Community Wiki</a
         >
         <a
           href="https://github.com/whitep4nth3r/pantherworld/issues"
           @click="() => (open = false)"
-          class="text-base p-2 focus:outline-none focus:ring focus:ring-emerald-300 rounded-lg"
+          class="text-base p-2 focus:outline-none focus:ring focus:ring-emerald-300 rounded-lg text-white"
           target="_blank"
           >GitHub</a
         >
