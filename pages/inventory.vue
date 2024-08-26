@@ -176,7 +176,7 @@ onMounted(() => {
           v-model="activeFilter"
           :value="filter"
           class="accent-emerald-600 capitalize focus:outline-none focus:ring-2 focus:ring-emerald-300 active:outline-none active:ring-2 active:ring-emerald-300" />
-        <label :for="filter" class="font-display text-slate-50 text-2xl">
+        <label :for="filter" class="font-display text-2xl">
           {{ filter }}
         </label>
       </div>

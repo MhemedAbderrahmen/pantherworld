@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const config = useRuntimeConfig();
+const colorMode = useColorMode();
 
 useSeoMeta({
   title: "Welcome to p4nth3rworld",
@@ -52,6 +53,15 @@ const locationBgClass: locationKeyValue = {
       class="bg-violet-700 hover:bg-violet-500 focus:bg-emerald-700 active:bg-emerald-700 focus:outline-none focus:ring focus:ring-emerald-300 text-slate-50 py-2 px-4 rounded-lg text-xl transition font-display"
       >play now</a
     >
+    <h1>Color mode: {{ $colorMode.value }}</h1>
+    <div>
+      <select v-model="$colorMode.preference">
+        <option value="system">System</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="sepia">Sepia</option>
+      </select>
+    </div>
   </section>
 
   <section v-auto-animate>
@@ -186,5 +196,17 @@ const locationBgClass: locationKeyValue = {
   width: max-content;
   margin: auto;
   font-size: clamp(2rem, 4vw, 4rem);
+}
+.light-mode body {
+  background-color: #eff1f5;
+  color: #11111b;
+}
+.dark-mode body {
+  background-color: #181926;
+  color: #ebf4f1;
+}
+.sepia-mode body {
+  background-color: #f1e7d0;
+  color: #433422;
 }
 </style>

@@ -35,6 +35,10 @@ importers:
       vue:
         specifier: latest
         version: 3.4.38
+    devDependencies:
+      '@nuxtjs/color-mode':
+        specifier: ^3.4.4
+        version: 3.4.4(magicast@0.3.4)(rollup@4.21.0)
 
 packages:
 

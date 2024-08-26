@@ -163,7 +163,7 @@ const columns: {
           <th v-for="column of columns" scope="col" class="px-6 py-3 text-left">
             <button
               type="button"
-              class="text-xs font-medium min-w-max text-zinc-300 uppercase flex items-center gap-1 p-2 focus:outline-none active:outline-none focus:ring focus:ring-emerald-300 active:ring active:ring-emerald-300 rounded-lg"
+              class="text-xs font-medium min-w-max uppercase flex items-center gap-1 p-2 focus:outline-none active:outline-none focus:ring focus:ring-emerald-300 active:ring active:ring-emerald-300 rounded-lg"
               @click="onSortClicked(column.key)"
             >
               <span>

@@ -6,11 +6,6 @@ useSeoMeta({
   description: "404 Page not found",
 });
 
-useHead({
-  bodyAttrs: {
-    class: "m-auto p-4 max-w-screen-md bg-zinc-900 text-zinc-100",
-  },
-});
 </script>
 
 <template>
@@ -24,7 +19,7 @@ useHead({
 
       <a
         href="/"
-        class="font-display bg-violet-700 hover:bg-violet-500 focus:bg-emerald-700 active:bg-emerald-700 focus:outline-none focus:ring focus:ring-emerald-300 text-slate-50 font-bold uppercase py-2 px-4 rounded-lg text-xl transition"
+        class="font-display bg-violet-700 hover:bg-violet-500 focus:bg-emerald-700 active:bg-emerald-700 focus:outline-none focus:ring focus:ring-emerald-300 font-bold uppercase py-2 px-4 rounded-lg text-xl transition"
         >Take me home</a
       >
     </section>
